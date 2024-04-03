@@ -1,0 +1,23 @@
+{
+  "name": "js2-ca",
+  "version": "1.0.0",
+  "description": "ca at noroff. JavaScript front-end application for an existing social media platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass src/scss:dist/css",
+    "watch": "sass --watch src/scss:dist/css & live-server"
+  },
+  "keywords": [
+    "javaScript",
+    "bootstrap",
+    "sass",
+    "social-media"
+  ],
+  "author": "\"Emil Bejmo\" bejmo@live.se",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "sass": "^1.72.0"
+  }
+}
