@@ -5,6 +5,7 @@ export function registerFormHandler() {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+
     const formData = new FormData(form);
     const profile = {};
 
@@ -28,20 +29,10 @@ export function registerFormHandler() {
     }
 
     try {
-      await register(profile);
-      console.log(profile);
-      if (Response.status === "success") {
-        registrationMessage.textContent = "Registration successful!";
-        registrationMessage.classList.remove("text-danger");
-        registrationMessage.classList.add("text-success");
-      } else {
-        registrationMessage.textContent =
-          "Registration failed. Please try again later.";
-        registrationMessage.classList.remove("text-success");
-        registrationMessage.classList.add("text-danger");
-      }
+      const response = await register(profile);
+      console.log("Registration response FORM:", response);
     } catch (error) {
-      console.error("Reg failed: ", error);
+      console.log("ERROR!", error);
     }
   });
 }
