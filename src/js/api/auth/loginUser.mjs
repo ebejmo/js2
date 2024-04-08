@@ -1,6 +1,6 @@
-console.log(true);
 import { API_BASE_URL, API_AUTH, API_LOGIN } from "../constants.mjs";
-const API_KEY = "15068765-9d50-4895-b37f-8df955555c36";
+import { save } from "../../storage/localStorage.mjs";
+
 const method = "POST";
 
 export async function loginUser(profile) {
@@ -16,24 +16,20 @@ export async function loginUser(profile) {
     });
 
     const result = await response.json();
-    console.log("FROM USER LOGIN", result);
 
+    const loginMessage = document.querySelector("#loginMessage");
     if (response.ok) {
       const { accessToken, ...profileData } = result.data;
-      localStorage.setItem("accessToken:", accessToken);
-      localStorage.setItem("profile:", JSON.stringify(profileData));
-      console.log("TOKEN: ", accessToken);
-      console.log("PROFILEDATA: ", profileData);
+      save("token", accessToken);
+      save("profile", profileData);
       alert(`${profileData.name} is now logged in`);
       window.location.href = "/feed/posts/";
       return profile;
     } else {
-      throw new Error("HELLO ERROR", result.message || response.statusText);
+      loginMessage.textContent = "Login failed. Please try again later.";
+      loginMessage.classList.add("text-danger");
     }
   } catch (error) {
     console.log("ERROR:", error);
   }
 }
-
-// const profile = JSON.parse(localStorage.getItem("profile"));
-// console.log(profile);
