@@ -15,6 +15,7 @@ export function loginFormHandler() {
     try {
       const response = await loginUser(profile);
 
+      console.log("RESPONSE ", response);
       console.log("Login response FORM:", response);
     } catch (error) {
       console.log("ERROR! Login failed", error);
