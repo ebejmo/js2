@@ -6,8 +6,8 @@ import { loginFormHandler } from "./eventhandlers/loginForm.mjs";
 
 const path = location.pathname;
 
-if (path === "index.html") {
-  //   loginFormHandler();
+if (path === "/index.html") {
+  loginFormHandler();
 } else if (path === "/register/") {
   registerFormHandler();
 }
