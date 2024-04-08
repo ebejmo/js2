@@ -15,7 +15,6 @@ export async function register(profile) {
     });
 
     const result = await response.json();
-    console.log("FROM USER REG:", result);
 
     const registrationMessage = document.querySelector("#registrationMessage");
     if (response.ok) {
