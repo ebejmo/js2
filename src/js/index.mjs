@@ -6,8 +6,6 @@ import { getPost, id } from "./api/post/getPost.mjs";
 
 const path = location.pathname;
 
-console.log(id);
-
 if (path === "/index.html") {
   loginFormHandler();
 } else if (path === "/register/") {
