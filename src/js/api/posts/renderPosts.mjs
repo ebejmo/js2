@@ -54,7 +54,7 @@ export function renderPosts(content) {
 
     const link = document.createElement("a");
     link.classList.add("primary");
-    link.href = "#";
+    link.href = `/feed/post/${id}`;
     link.textContent = "Read more";
     bodyContainer.appendChild(link);
 
