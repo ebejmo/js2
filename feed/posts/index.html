@@ -81,34 +81,49 @@
           <!-- Publish Post -->
           <div class="col-lg-5 mb-4 order-first order-lg-last">
             <div class="row">
-              <form>
+              <form id="createPostForm">
                 <div class="card">
                   <h5 class="card-header new-post-header">Create new post</h5>
                   <div class="card-body">
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label"
-                        >Title of post</label
-                      >
+                    <div class="mb-2">
+                      <label for="title" class="form-label">Post title</label>
                       <input
                         type="text"
                         class="form-control"
-                        id="exampleFormControlInput1"
+                        name="title"
+                        title="Post title"
                         placeholder="Title"
+                        required
                       />
                     </div>
-                    <div class="mb-3">
-                      <label
-                        for="exampleFormControlTextarea1"
-                        class="form-label"
+
+                    <div class="mb-2">
+                      <label for="body" class="form-label"
                         >Write down your thoughts</label
                       >
                       <textarea
+                        placeholder="Body"
+                        name="body"
                         class="form-control"
-                        id="exampleFormControlTextarea1"
-                        rows="5"
+                        id="bodyText"
+                        rows="3"
                       ></textarea>
                     </div>
-                    <button type="submit" class="w-100 btn btn-outline-dark">
+
+                    <div class="mb-2">
+                      <label for="banner" class="form-label">Media</label>
+                      <input
+                        placeholder="url"
+                        type="url"
+                        class="form-control"
+                        name="banner"
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      class="w-100 btn btn-outline-dark mt-2"
+                    >
                       Post thoughts
                     </button>
                   </div>
