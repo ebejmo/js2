@@ -11885,4 +11885,10 @@ textarea.form-control-lg {
   object-fit: cover;
 }
 
+.card-text-small {
+  font-size: 0.875em;
+  font-weight: 200;
+  color: #495057;
+}
+
 /*# sourceMappingURL=styles.css.map */
