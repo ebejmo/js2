@@ -1,4 +1,4 @@
-import { fetchData } from "../GET/fetchData.mjs";
+import { requestsAPI } from "../headers/requestsAPI.mjs";
 import { renderPost } from "./renderPost.mjs";
 
 export const queryString = document.location.search;
@@ -7,7 +7,7 @@ export const id = params.get("id");
 
 export async function getPost(url) {
   try {
-    const result = await fetchData(url);
+    const result = await requestsAPI(url);
     console.log("JSON/RESULT: ", result);
     renderPost(result);
     return result;
