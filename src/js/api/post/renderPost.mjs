@@ -2,7 +2,7 @@ export function renderPost(content) {
   const { title, body, media, created } = content.data;
 
   document.querySelector("#navTitle").textContent = title;
-  document.title = title;
+  document.title = `${title} | Noroff Social`;
 
   const postDate = new Date(created).toLocaleDateString("en-US", {
     weekday: "long",

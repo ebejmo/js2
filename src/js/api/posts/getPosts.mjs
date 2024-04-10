@@ -1,9 +1,9 @@
-import { fetchData } from "../GET/fetchData.mjs";
+import { requestsAPI } from "../headers/requestsAPI.mjs";
 import { renderPosts } from "./renderPosts.mjs";
 
 export async function getPosts(url) {
   try {
-    const result = await fetchData(url);
+    const result = await requestsAPI(url);
     console.log("JSON/RESULT: ", result);
     renderPosts(result);
   } catch (error) {
