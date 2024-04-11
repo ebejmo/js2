@@ -22,9 +22,10 @@ export async function loginUser(profile) {
       const { accessToken, ...profileData } = result.data;
       save("token", accessToken);
       save("profile", profileData);
+      console.log(profileData);
       alert(`${profileData.name} is now logged in`);
       window.location.href = "/feed/posts/";
-      return profile;
+      return profileData;
     } else {
       loginMessage.textContent = "Login failed. Please try again later.";
       loginMessage.classList.add("text-danger");
