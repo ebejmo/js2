@@ -1,4 +1,4 @@
-import { API_BASE_URL, API_SOCIAL, POSTS } from "./api/constants.mjs";
+import { API_BASE_URL, API_SOCIAL, DETAILS, POSTS } from "./api/constants.mjs";
 import { registerFormHandler } from "./eventhandlers/registerForm.mjs";
 import { loginFormHandler } from "./eventhandlers/loginForm.mjs";
 import { getPosts } from "./api/posts/getPosts.mjs";
@@ -12,8 +12,8 @@ if (path === "/index.html") {
 } else if (path === "/register/") {
   registerFormHandler();
 } else if (path === "/feed/posts/") {
-  getPosts(API_BASE_URL + API_SOCIAL + POSTS);
+  getPosts(API_BASE_URL + API_SOCIAL + POSTS + DETAILS);
   attachCreatePostFormListener();
 } else if (path === "/feed/posts/post/") {
-  getPost(`${API_BASE_URL}${API_SOCIAL}${POSTS}/${id}`);
+  await getPost(`${API_BASE_URL}${API_SOCIAL}${POSTS}/${id}${DETAILS}`);
 }
