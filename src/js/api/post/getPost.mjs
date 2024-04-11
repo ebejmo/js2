@@ -1,3 +1,4 @@
+import { toggleActionButton } from "../../eventhandlers/toggleActionButton.mjs";
 import { requestsAPI } from "../headers/requestsAPI.mjs";
 import { renderPost } from "./renderPost.mjs";
 
@@ -10,7 +11,10 @@ export async function getPost(url) {
     const result = await requestsAPI(url);
     console.log("JSON/RESULT: ", result);
     renderPost(result);
-    return result;
+    const postAuthorEmail = result.data.author.email;
+    toggleActionButton(postAuthorEmail, "#editBtn");
+    toggleActionButton(postAuthorEmail, "#deleteBtn");
+    return { result, postAuthorEmail };
   } catch (error) {
     console.log("ERROR FETCHING POST: ", error);
   }
