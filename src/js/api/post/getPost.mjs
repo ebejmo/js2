@@ -14,7 +14,8 @@ export async function getPost(url) {
     const postAuthorEmail = result.data.author.email;
     toggleActionButton(postAuthorEmail, "#editBtn");
     toggleActionButton(postAuthorEmail, "#deleteBtn");
-    return { result, postAuthorEmail };
+    const postData = result.data;
+    return { result, postAuthorEmail, postData };
   } catch (error) {
     console.log("ERROR FETCHING POST: ", error);
   }
