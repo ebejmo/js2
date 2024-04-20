@@ -4,7 +4,6 @@ export function toggleActionButton(postAuthorEmail, buttonId) {
 
   if (profileData) {
     const { email } = JSON.parse(profileData);
-    console.log("Email:", email, "postAuthor:", postAuthorEmail);
     if (email === postAuthorEmail) {
       button.disabled = false;
       return true;
