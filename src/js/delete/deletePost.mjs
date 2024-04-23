@@ -34,10 +34,15 @@ export async function deletePost(postID) {
       },
     });
 
-    // Check the response status
+    const deleteMessage = document.querySelector("#deleteMessage");
     if (response.status === 204) {
+      alert("Your post has been deleted!");
+      window.location.href = "/feed/posts";
       console.log("Post deleted successfully!");
     } else {
+      deleteMessage.textContent =
+        "We failed to delete your post. Please try again later.";
+      deleteMessage.classList.add("text-danger");
       console.error(`Failed to delete post. Status code: ${response.status}`);
     }
   } catch (error) {
