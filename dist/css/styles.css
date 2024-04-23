@@ -11891,6 +11891,10 @@ textarea.form-control-lg {
   color: #495057;
 }
 
+#updateMessage {
+  padding: 0 1rem 1rem 1rem;
+}
+
 .hidden {
   display: none;
 }

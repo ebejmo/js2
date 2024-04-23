@@ -6,6 +6,7 @@ import { getPost, id } from "./api/post/getPost.mjs";
 import { attachCreatePostFormListener } from "./eventhandlers/attachCreatePostFormListener.mjs";
 import { toggleFormShow } from "./eventhandlers/updatePostForm/toogleFormShow.mjs";
 import { setupDeleteButton } from "./delete/setupDelete.mjs";
+import { setupEditButton } from "./eventhandlers/updatePostForm/setupEdit.mjs";
 
 const path = location.pathname;
 const params = new URLSearchParams(window.location.search);
@@ -19,9 +20,10 @@ if (path === "/index.html") {
   await getPosts(API_BASE_URL + API_SOCIAL + POSTS + DETAILS);
   attachCreatePostFormListener();
 } else if (path === "/feed/posts/post/") {
-  const { postData, postId, postAuthorEmail } = await getPost(
+  const { postId, postData: oldPostData } = await getPost(
     `${API_BASE_URL}${API_SOCIAL}${POSTS}/${id}${DETAILS}`
   );
   setupDeleteButton(postId);
+  setupEditButton(postId, oldPostData);
   toggleFormShow();
 }
