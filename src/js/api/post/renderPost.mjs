@@ -1,5 +1,5 @@
 export function renderPost(content) {
-  const { title, body, media, created } = content.data;
+  const { title, body, media, created } = content;
 
   document.querySelector("#navTitle").textContent = title;
   document.title = `${title} | Noroff Social`;

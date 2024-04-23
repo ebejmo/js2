@@ -9,13 +9,15 @@ export const id = params.get("id");
 export async function getPost(url) {
   try {
     const result = await requestsAPI(url);
-    console.log("JSON/RESULT: ", result);
-    renderPost(result);
-    const postAuthorEmail = result.data.author.email;
+    const postData = result.data;
+    const postId = postData.id;
+
+    renderPost(postData);
+    const postAuthorEmail = postData.author.email;
     toggleActionButton(postAuthorEmail, "#editBtn");
     toggleActionButton(postAuthorEmail, "#deleteBtn");
-    const postData = result.data;
-    return { result, postAuthorEmail, postData };
+
+    return { postData, postId, postAuthorEmail };
   } catch (error) {
     console.log("ERROR FETCHING POST: ", error);
   }

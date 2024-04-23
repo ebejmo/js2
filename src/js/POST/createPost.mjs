@@ -7,7 +7,6 @@ export async function createPost(postData) {
 
     const response = await requestsAPI(url, "POST", postData);
 
-    console.log("RESPONSE FROM CREATEPOST:", response);
     return response;
   } catch (error) {
     console.log("ERROR CREATING POST()", error);
