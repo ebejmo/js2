@@ -10,11 +10,6 @@
       src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
     ></script>
     <script type="module" src="/src/js/index.mjs" defer></script>
-    <script
-      type="module"
-      src="/src/js/api/search/handleSearch.mjs"
-      defer
-    ></script>
   </head>
   <body class="h-100 d-flex flex-column">
     <header class="mb-auto">
@@ -46,12 +41,13 @@
                 <a class="nav-link" href="/profile/">Profile</a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
+            <form class="d-flex" role="search" id="search-form">
               <input
                 class="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                id="search"
               />
               <button
                 class="btn btn-outline-dark text-white btn-custom"
@@ -77,9 +73,8 @@
             Sort
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Most relevant</a></li>
-            <li><a class="dropdown-item" href="#">Latest</a></li>
-            <li><a class="dropdown-item" href="#">Oldest</a></li>
+            <li><a class="dropdown-item" id="latest" href="">Latest</a></li>
+            <li><a class="dropdown-item" id="newest" href="">Oldest</a></li>
           </ul>
         </div>
       </div>

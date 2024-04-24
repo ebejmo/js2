@@ -6,7 +6,7 @@ export function renderPosts(content) {
     contentContainer.removeChild(contentContainer.firstChild);
   }
 
-  content.data.forEach(({ id, title, body, media }) => {
+  content.forEach(({ id, title, body, media }) => {
     const cardContainer = document.createElement("div");
     cardContainer.classList.add("card", "mb-3", "h-100");
     cardContainer.id = id;

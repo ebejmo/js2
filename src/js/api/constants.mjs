@@ -7,3 +7,4 @@ export const API_KEY = "15068765-9d50-4895-b37f-8df955555c36";
 export const API_SOCIAL = "/social";
 export const POSTS = "/posts";
 export const DETAILS = "?_author=true&_comments=true&_reactions=true";
+export const API_FULL_URL = API_BASE_URL + API_SOCIAL + POSTS;

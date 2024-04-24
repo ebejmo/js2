@@ -5,7 +5,10 @@ export async function getPosts(url) {
   try {
     const result = await requestsAPI(url);
     console.log("JSON/RESULT: ", result);
-    renderPosts(result);
+
+    const allPosts = result.data;
+    console.log(allPosts);
+    renderPosts(allPosts);
   } catch (error) {
     console.log("ERROR FROM GET POSTS: ", error);
   }
