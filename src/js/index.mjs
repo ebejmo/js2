@@ -10,6 +10,7 @@ import { setupEditButton } from "./eventhandlers/updatePostForm/setupEdit.mjs";
 import { setupSearchForm } from "./api/search/setupSearch.mjs";
 
 const path = location.pathname;
+
 console.log("hello again");
 
 if (path === "/index.html") {
