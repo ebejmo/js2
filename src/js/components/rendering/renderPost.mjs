@@ -1,5 +1,5 @@
 export function renderPost(content) {
-  const { title, body, media, created } = content;
+  const { title, body, media, created, tags } = content;
 
   document.querySelector("#navTitle").textContent = title;
   document.title = `${title} | Noroff Social`;
@@ -44,9 +44,23 @@ export function renderPost(content) {
   textContainer.appendChild(bodyContainer);
 
   const cardText = document.createElement("p");
-  cardText.classList.add("card-text");
+  cardText.classList.add("card-text", "mb-2");
   cardText.textContent = body;
   bodyContainer.appendChild(cardText);
+
+  const cardTags = document.createElement("div");
+  cardTags.classList.add("card-tags", "mb-2");
+
+  if (tags) {
+    tags.forEach((tag) => {
+      const tagElement = document.createElement("span");
+      tagElement.classList.add("fw-bold");
+      tagElement.textContent = `#${tag} `;
+      cardTags.appendChild(tagElement);
+    });
+  }
+
+  bodyContainer.appendChild(cardTags);
 
   const cardDate = document.createElement("p");
   cardDate.classList.add("card-text-small");

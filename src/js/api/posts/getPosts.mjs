@@ -4,10 +4,12 @@ import { renderPosts } from "../../components/rendering/renderPosts.mjs";
 export async function getPosts(url) {
   try {
     const result = await requestsAPI(url);
-    console.log("JSON/RESULT: ", result);
+    // console.log("JSON/RESULT: ", result);
 
     const allPosts = result.data;
-    console.log(allPosts);
+    // allPosts.forEach((post) => {
+    //   console.log(post.tags);
+    // });
     renderPosts(allPosts);
   } catch (error) {
     console.log("ERROR FROM GET POSTS: ", error);
