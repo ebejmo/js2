@@ -1,6 +1,6 @@
-import { toggleActionButton } from "../../eventhandlers/toggleActionButton.mjs";
+import { toggleActionButton } from "../../handlers/toggleActionButton.mjs";
 import { requestsAPI } from "../headers/requestsAPI.mjs";
-import { renderPost } from "./renderPost.mjs";
+import { renderPost } from "../../components/rendering/renderPost.mjs";
 
 export const queryString = document.location.search;
 export const params = new URLSearchParams(queryString);

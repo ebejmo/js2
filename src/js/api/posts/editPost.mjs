@@ -1,6 +1,6 @@
-import { API_BASE_URL, API_KEY, API_SOCIAL, POSTS } from "../api/constants.mjs";
-import { requestsAPI } from "../api/headers/requestsAPI.mjs";
-import { load } from "../storage/localStorage.mjs";
+import { API_BASE_URL, API_KEY, API_SOCIAL, POSTS } from "../constants.mjs";
+import { requestsAPI } from "../headers/requestsAPI.mjs";
+import { load } from "../../storage/localStorage.mjs";
 
 // export async function updatePost(postId, updatedPostData) {
 //   const url = `${API_BASE_URL}${API_SOCIAL}${POSTS}/${postId}`;

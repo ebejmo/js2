@@ -1,6 +1,6 @@
-import { editPost } from "../../POST/editPost.mjs";
+import { editPost } from "../../api/posts/editPost.mjs";
 
-export async function setupEditButton(postId, oldPostData) {
+export async function configurePostEditHandler(postId, oldPostData) {
   const updateBtn = document.querySelector("#updateBtn");
   const updatePostForm = document.querySelector("#updatePostForm");
   const editMessage = document.querySelector("#updateMessage");

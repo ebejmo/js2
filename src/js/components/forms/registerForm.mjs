@@ -1,4 +1,4 @@
-import { register } from "../api/auth/registerUser.mjs";
+import { register } from "../../api/auth/registerUser.mjs";
 
 export function registerFormHandler() {
   const form = document.querySelector("#registerForm");

@@ -1,4 +1,4 @@
-import { handleSubmitCreatePostForm } from "./createForms/submitPostFrom.mjs";
+import { handleSubmitCreatePostForm } from "../components/forms/submitPostFrom.mjs";
 
 export function attachCreatePostFormListener() {
   const form = document.querySelector("#createPostForm");

@@ -1,5 +1,5 @@
 import { requestsAPI } from "../headers/requestsAPI.mjs";
-import { renderPosts } from "./renderPosts.mjs";
+import { renderPosts } from "../../components/rendering/renderPosts.mjs";
 
 export async function getPosts(url) {
   try {
