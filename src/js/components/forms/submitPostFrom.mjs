@@ -18,6 +18,12 @@ export async function handleSubmitCreatePostForm(event) {
       };
     }
 
+    const tagsInput = formData.get("tags");
+    if (tagsInput) {
+      const tagsArray = tagsInput.split(",").map((tag) => tag.trim());
+      postData.tags = tagsArray;
+    }
+
     const response = await createPost(postData);
     console.log("RESPONSE FROM FORM", response);
   } catch (error) {

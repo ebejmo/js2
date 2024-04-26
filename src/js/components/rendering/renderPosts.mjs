@@ -6,7 +6,7 @@ export function renderPosts(content) {
     contentContainer.removeChild(contentContainer.firstChild);
   }
 
-  content.forEach(({ id, title, body, media }) => {
+  content.forEach(({ id, title, body, media, tags }) => {
     const cardContainer = document.createElement("div");
     cardContainer.classList.add("card", "mb-3", "h-100");
     cardContainer.id = id;
@@ -48,9 +48,23 @@ export function renderPosts(content) {
     textContainer.appendChild(bodyContainer);
 
     const cardText = document.createElement("p");
-    cardText.classList.add("card-text");
+    cardText.classList.add("card-text", "mb-2");
     cardText.textContent = body;
     bodyContainer.appendChild(cardText);
+
+    const cardTags = document.createElement("div");
+    cardTags.classList.add("card-tags", "mb-2");
+
+    if (tags) {
+      tags.forEach((tag) => {
+        const tagElement = document.createElement("span");
+        tagElement.classList.add("fw-bold");
+        tagElement.textContent = `#${tag} `;
+        cardTags.appendChild(tagElement);
+      });
+    }
+
+    bodyContainer.appendChild(cardTags);
 
     const link = document.createElement("a");
     link.classList.add("primary");
