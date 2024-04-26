@@ -1,4 +1,4 @@
-import { createPost } from "../../POST/createPost.mjs";
+import { createPost } from "../../api/posts/createPost.mjs";
 
 export async function handleSubmitCreatePostForm(event) {
   event.preventDefault();

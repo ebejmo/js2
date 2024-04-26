@@ -1,5 +1,5 @@
-import { API_BASE_URL, API_SOCIAL, POSTS } from "../api/constants.mjs";
-import { requestsAPI } from "../api/headers/requestsAPI.mjs";
+import { API_BASE_URL, API_SOCIAL, POSTS } from "../constants.mjs";
+import { requestsAPI } from "../headers/requestsAPI.mjs";
 
 export async function createPost(postData) {
   try {

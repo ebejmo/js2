@@ -1,7 +1,7 @@
 import { API_FULL_URL } from "../constants.mjs";
 import { requestsAPI } from "../headers/requestsAPI.mjs";
 import { getPosts } from "../posts/getPosts.mjs";
-import { renderPosts } from "../posts/renderPosts.mjs";
+import { renderPosts } from "../../components/rendering/renderPosts.mjs";
 
 export async function handleSearch(event) {
   event.preventDefault();
