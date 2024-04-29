@@ -45,7 +45,7 @@
               <input
                 class="form-control me-2"
                 type="search"
-                placeholder="Search"
+                placeholder="Search by title or body text"
                 aria-label="Search"
                 id="search"
               />
@@ -62,23 +62,6 @@
     </header>
 
     <main class="mb-5">
-      <div class="container mt-4">
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Sort
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" id="latest" href="">Latest</a></li>
-            <li><a class="dropdown-item" id="newest" href="">Oldest</a></li>
-          </ul>
-        </div>
-      </div>
-
       <div class="container mt-4">
         <div class="row">
           <!-- Publish Post -->
@@ -144,6 +127,22 @@
                 </div>
               </form>
             </div>
+          </div>
+
+          <div class="container">
+            <h1>Posts</h1>
+            <form id="filter-form" class="col-sm-6 col-lg-4 d-flex flex-column">
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  id="tagInput"
+                  class="form-control"
+                  placeholder="Filter by tag"
+                  aria-label="Filter by tag"
+                />
+                <button type="submit" class="btn btn-primary">Filter</button>
+              </div>
+            </form>
           </div>
 
           <!-- Posts -->

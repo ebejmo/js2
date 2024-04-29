@@ -8,6 +8,7 @@ import { toggleFormShow } from "./handlers/toggleFormShow.mjs";
 import { setupDeleteButton } from "./handlers/setupDelete.mjs";
 import { configurePostEditHandler } from "./components/forms/configurePost.mjs";
 import { setupSearchForm } from "./api/search/setupSearch.mjs";
+import { setupFilterForm } from "./api/filter/setupFilter.mjs";
 
 const path = location.pathname;
 
@@ -19,6 +20,7 @@ if (path === "/index.html") {
   await getPosts(API_FULL_URL + DETAILS);
   attachCreatePostFormListener();
   setupSearchForm();
+  setupFilterForm();
 } else if (path === "/feed/posts/post/") {
   const { postId, postData: oldPostData } = await getPost(
     `${API_FULL_URL}/${id}${DETAILS}`
