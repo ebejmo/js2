@@ -1,4 +1,4 @@
-export function renderPost(content) {
+export function renderPost(content, userName, postAuthorEmail) {
   const { title, body, media, created, tags } = content;
 
   document.querySelector("#navTitle").textContent = title;
@@ -61,6 +61,17 @@ export function renderPost(content) {
   }
 
   bodyContainer.appendChild(cardTags);
+
+  const name = document.createElement("h5");
+  name.classList.add("card-author");
+  name.textContent = `${userName}`;
+  bodyContainer.appendChild(name);
+
+  const email = document.createElement("a");
+  email.href = "#";
+  email.classList.add("card-author");
+  email.textContent = `${postAuthorEmail}`;
+  bodyContainer.appendChild(email);
 
   const cardDate = document.createElement("p");
   cardDate.classList.add("card-text-small");

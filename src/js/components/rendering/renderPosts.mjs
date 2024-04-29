@@ -1,12 +1,11 @@
 export function renderPosts(content) {
   const contentContainer = document.querySelector("#content");
 
-  // clear content without using innerHTML
   while (contentContainer.firstChild) {
     contentContainer.removeChild(contentContainer.firstChild);
   }
 
-  content.forEach(({ id, title, body, media, tags }) => {
+  content.forEach(({ id, title, body, media, tags, author }) => {
     const cardContainer = document.createElement("div");
     cardContainer.classList.add("card", "mb-3", "h-100");
     cardContainer.id = id;
@@ -66,11 +65,21 @@ export function renderPosts(content) {
 
     bodyContainer.appendChild(cardTags);
 
+    const linkContainer = document.createElement("div");
+    linkContainer.classList.add("d-flex", "lazy-links");
+    bodyContainer.appendChild(linkContainer);
+
     const link = document.createElement("a");
     link.classList.add("primary");
     link.href = `/feed/posts/post/?id=${id}`;
     link.textContent = "Read more";
-    bodyContainer.appendChild(link);
+    linkContainer.appendChild(link);
+
+    const userName = document.createElement("a");
+    userName.classList.add("secondary", "userName");
+    userName.href = "#";
+    userName.textContent = `@${author.name}`;
+    linkContainer.appendChild(userName);
 
     contentContainer.appendChild(cardContainer);
   });
