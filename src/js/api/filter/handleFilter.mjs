@@ -1,11 +1,13 @@
 import { renderNoMatches } from "../../components/rendering/renderNoMatches.mjs";
 import { renderPosts } from "../../components/rendering/renderPosts.mjs";
-import { API_FULL_URL, noMatchTag } from "../constants.mjs";
+import { API_FULL_URL, DETAILS, noMatchTag } from "../constants.mjs";
 import { requestsAPI } from "../headers/requestsAPI.mjs";
 import { getPosts } from "../posts/getPosts.mjs";
 
 function createFilterUrl(tag) {
-  return `${API_FULL_URL}?_tag=${encodeURIComponent(tag)}`;
+  const encodedTag = encodeURIComponent(tag);
+  const filterUrl = `${API_FULL_URL}?_tag=${encodedTag}&_author=true&_comments=true&_reactions=true`;
+  return filterUrl;
 }
 
 export async function handleFilter(event) {
@@ -15,7 +17,7 @@ export async function handleFilter(event) {
   const tag = tagInput.value.trim();
 
   if (!tag) {
-    await getPosts(API_FULL_URL);
+    await getPosts(API_FULL_URL + DETAILS);
     return;
   }
 

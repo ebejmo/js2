@@ -62,16 +62,48 @@ export function renderPost(content, userName, postAuthorEmail) {
 
   bodyContainer.appendChild(cardTags);
 
-  const name = document.createElement("h5");
-  name.classList.add("card-author");
+  const userInfoDiv = document.createElement("div");
+  userInfoDiv.classList.add(
+    "d-flex",
+    "justify-content-between",
+    "mt-4",
+    "mb-2"
+  );
+
+  const nameDiv = document.createElement("div");
+  nameDiv.classList.add("flex-grow-1");
+
+  const nameLabel = document.createElement("h6");
+  nameLabel.textContent = "Username";
+
+  const name = document.createElement("a");
+  name.classList.add("userName");
+  name.href = "#";
   name.textContent = `${userName}`;
-  bodyContainer.appendChild(name);
+
+  nameDiv.appendChild(nameLabel);
+  nameDiv.appendChild(name);
+
+  const emailDiv = document.createElement("div");
+  emailDiv.classList.add("text-right");
+
+  const emailLabel = document.createElement("h6");
+  emailLabel.textContent = "Email";
 
   const email = document.createElement("a");
   email.href = "#";
-  email.classList.add("card-author");
   email.textContent = `${postAuthorEmail}`;
-  bodyContainer.appendChild(email);
+
+  emailDiv.appendChild(emailLabel);
+  emailDiv.appendChild(email);
+
+  bodyContainer.appendChild(nameDiv);
+  bodyContainer.appendChild(emailDiv);
+
+  userInfoDiv.appendChild(nameDiv);
+  userInfoDiv.appendChild(emailDiv);
+
+  bodyContainer.appendChild(userInfoDiv);
 
   const cardDate = document.createElement("p");
   cardDate.classList.add("card-text-small");

@@ -9,6 +9,7 @@ import { setupDeleteButton } from "./handlers/setupDelete.mjs";
 import { configurePostEditHandler } from "./components/forms/configurePost.mjs";
 import { setupSearchForm } from "./api/search/setupSearch.mjs";
 import { setupFilterForm } from "./api/filter/setupFilter.mjs";
+import { toggleCreateFormShow } from "./handlers/toggleCreateFormShow.mjs";
 
 const path = location.pathname;
 
@@ -19,6 +20,7 @@ if (path === "/index.html") {
 } else if (path === "/feed/posts/") {
   await getPosts(API_FULL_URL + DETAILS);
   attachCreatePostFormListener();
+  toggleCreateFormShow();
   setupSearchForm();
   setupFilterForm();
 } else if (path === "/feed/posts/post/") {
