@@ -10,6 +10,25 @@ function createFilterUrl(tag) {
   return filterUrl;
 }
 
+/**
+ * Handles the filtering of posts based on a provided tag input from a form event.
+ *
+ * @param {Event} event - The event object from a form submission event. The function prevents the default form submission behavior.
+ *
+ * The function reads a tag value from an input element with ID `#tagInput`, and if a tag is provided,
+ * it creates a URL for filtering posts based on the tag. It then fetches the filtered posts using the URL
+ * and renders the posts if there are matches, or shows a message if there are no matches.
+ *
+ * @throws {Error} - Throws an error if there is a network or other issue during the filtering process.
+ *
+ * @example
+ * // Assuming you have an input element with ID `tagInput` and a form element that triggers handleFilter.
+ * document.querySelector('#filterForm').addEventListener('submit', handleFilter);
+ *
+ * // When the form is submitted with a tag in the `#tagInput` input element, the handleFilter function
+ * // will be triggered, filtering and rendering the posts based on the provided tag.
+ */
+
 export async function handleFilter(event) {
   event.preventDefault();
 
