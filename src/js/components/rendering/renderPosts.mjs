@@ -1,3 +1,38 @@
+/**
+ * Renders a list of posts in a specified content container.
+ *
+ * @param {Array} content - Array of post objects to render. Each object should contain the properties:
+ *  - `id` {string}: The unique identifier for the post.
+ *  - `title` {string}: The title of the post.
+ *  - `body` {string}: The body content of the post.
+ *  - `media` {Object|null}: The media object containing the URL and alt text for the post image (if any).
+ *  - `tags` {Array<string>|null}: An array of tags associated with the post.
+ *  - `author` {Object}: The author object containing the author's name.
+ *
+ * The function dynamically creates HTML elements to display each post within a card layout.
+ * Existing content in the container is cleared before rendering the new content.
+ *
+ * @example
+ * // Assuming you have an array of post objects called `postsArray` and the necessary HTML structure.
+ * const postsArray = [
+ *   {
+ *     id: 'post1',
+ *     title: 'Post Title',
+ *     body: 'This is the body of the post.',
+ *     media: {
+ *       url: 'https://example.com/image.jpg',
+ *       alt: 'Post image',
+ *     },
+ *     tags: ['tag1', 'tag2'],
+ *     author: {
+ *       name: 'authorName',
+ *     },
+ *   },
+ *   // Additional post objects...
+ * ];
+ * // The function will create and insert post cards in the container with ID 'content'.
+ */
+
 export function renderPosts(content) {
   const contentContainer = document.querySelector("#content");
 
