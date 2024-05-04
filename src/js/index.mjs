@@ -13,7 +13,7 @@ import { toggleCreateFormShow } from "./handlers/toggleCreateFormShow.mjs";
 
 const path = location.pathname;
 
-if (path === "/index.html") {
+if (path === "/login/") {
   loginFormHandler();
 } else if (path === "/register/") {
   registerFormHandler();
