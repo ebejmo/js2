@@ -43,8 +43,8 @@ The project meets the following user stories:
 * User can search the post content feed.
 * User can view a post content item by ID.
 * User can create a post content item.
-* User can update a post content item.
-* User can delete a post content item.
+* User can update/edit thier own post content items.
+* User can delete their own post content items.
 
 ## Documentation
 JSDocs
