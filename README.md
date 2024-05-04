@@ -54,5 +54,8 @@ The codebase includes JSDoc comments for a couple of functions to improve code d
 ## Known Issues
 While the code is functional, it is a work in progress and big improvements can still be made.
 
+## Planning
+A [Trello board](https://trello.com/b/n4alWoWV/javascript2) was used to plan this project.
+
 ## Feedback
 I appreciate any feedback you may have on the project. Please feel free to comment on the forum or create an issue in the GitHub repository.
