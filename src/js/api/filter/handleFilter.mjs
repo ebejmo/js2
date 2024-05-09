@@ -1,5 +1,9 @@
 import { renderNoMatches } from "../../components/rendering/renderNoMatches.mjs";
 import { renderPosts } from "../../components/rendering/renderPosts.mjs";
+import {
+  hideSpinner,
+  showSpinner,
+} from "../../components/spinners/spinners.mjs";
 import { API_FULL_URL, DETAILS, noMatchTag } from "../constants.mjs";
 import { requestsAPI } from "../headers/requestsAPI.mjs";
 import { getPosts } from "../posts/getPosts.mjs";
@@ -43,8 +47,10 @@ export async function handleFilter(event) {
   const filterUrl = createFilterUrl(tag);
 
   try {
+    showSpinner();
     const response = await requestsAPI(filterUrl);
 
+    hideSpinner();
     if (response && response.data) {
       const content = response.data;
       const noMatches = response.data.length === 0;
