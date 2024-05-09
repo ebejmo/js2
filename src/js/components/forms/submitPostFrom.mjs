@@ -25,7 +25,12 @@ export async function handleSubmitCreatePostForm(event) {
     }
 
     const response = await createPost(postData);
-    console.log("RESPONSE FROM FORM", response);
+    if (response && response.statusCode === 400) {
+      alert("Failed to create your post.");
+    } else {
+      alert("Post created!");
+      window.location.href = "/pages/feed/posts/";
+    }
   } catch (error) {
     console.log("ERROR FROM CREATE FORM: ", error);
   }
