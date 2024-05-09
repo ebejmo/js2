@@ -12,3 +12,5 @@ export const noMatchSearch =
   "Sorry, no posts found for your search. Please try a different query.";
 export const noMatchTag =
   "Sorry, no posts found with the specified tag. Please try a different tag.";
+export const apiCallGoneWrong =
+  "Sorry, we are having trouble fetching the content at the moment. Please try again later.";

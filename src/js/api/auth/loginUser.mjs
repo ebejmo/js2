@@ -55,7 +55,7 @@ export async function loginUser(profile) {
       save("profile", profileData);
       console.log(profileData);
       alert(`${profileData.name} is now logged in`);
-      window.location.href = "/feed/posts/";
+      window.location.href = "/pages/feed/posts/";
       return profileData;
     } else {
       loginMessage.textContent = "Login failed. Please try again later.";

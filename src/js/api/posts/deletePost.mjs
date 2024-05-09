@@ -37,7 +37,7 @@ export async function deletePost(postID) {
     const deleteMessage = document.querySelector("#deleteMessage");
     if (response.status === 204) {
       alert("Your post has been deleted!");
-      window.location.href = "/feed/posts";
+      window.location.href = "/pages/feed/posts/";
       console.log("Post deleted successfully!");
     } else {
       deleteMessage.textContent =

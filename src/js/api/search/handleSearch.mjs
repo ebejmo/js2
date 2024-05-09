@@ -3,6 +3,10 @@ import { requestsAPI } from "../headers/requestsAPI.mjs";
 import { getPosts } from "../posts/getPosts.mjs";
 import { renderPosts } from "../../components/rendering/renderPosts.mjs";
 import { renderNoMatches } from "../../components/rendering/renderNoMatches.mjs";
+import {
+  hideSpinner,
+  showSpinner,
+} from "../../components/spinners/spinners.mjs";
 
 function createSearchUrl(query) {
   const encodedQuery = encodeURIComponent(query);
@@ -24,8 +28,10 @@ export async function handleSearch(event) {
   const searchUrl = createSearchUrl(query);
 
   try {
+    showSpinner();
     const response = await requestsAPI(searchUrl);
 
+    hideSpinner();
     if (response && response.data) {
       const content = response.data;
       const noMatches = response.data.length === 0;

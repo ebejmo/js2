@@ -1,4 +1,4 @@
-import { DETAILS, API_FULL_URL } from "./api/constants.mjs";
+import { DETAILS, API_FULL_URL, apiCallGoneWrong } from "./api/constants.mjs";
 import { registerFormHandler } from "./components/forms/registerForm.mjs";
 import { loginFormHandler } from "./components/forms/loginForm.mjs";
 import { getPosts } from "./api/posts/getPosts.mjs";
@@ -10,24 +10,40 @@ import { configurePostEditHandler } from "./components/forms/configurePost.mjs";
 import { setupSearchForm } from "./api/search/setupSearch.mjs";
 import { setupFilterForm } from "./api/filter/setupFilter.mjs";
 import { toggleCreateFormShow } from "./handlers/toggleCreateFormShow.mjs";
+import { hideSpinner, showSpinner } from "./components/spinners/spinners.mjs";
+import { renderNoMatches } from "./components/rendering/renderNoMatches.mjs";
 
 const path = location.pathname;
 
-if (path === "/login/") {
+if (path === "/pages/login/") {
   loginFormHandler();
-} else if (path === "/register/") {
+} else if (path === "/pages/register/") {
   registerFormHandler();
-} else if (path === "/feed/posts/") {
-  await getPosts(API_FULL_URL + DETAILS);
-  attachCreatePostFormListener();
-  toggleCreateFormShow();
-  setupSearchForm();
-  setupFilterForm();
-} else if (path === "/feed/posts/post/") {
-  const { postId, postData: oldPostData } = await getPost(
-    `${API_FULL_URL}/${id}${DETAILS}`
-  );
-  setupDeleteButton(postId);
-  configurePostEditHandler(postId, oldPostData);
-  toggleFormShow();
+} else if (path === "/pages/feed/posts/") {
+  try {
+    showSpinner();
+    await getPosts(API_FULL_URL + DETAILS);
+    hideSpinner();
+    attachCreatePostFormListener();
+    toggleCreateFormShow();
+    setupSearchForm();
+    setupFilterForm();
+  } catch (error) {
+    hideSpinner();
+    renderNoMatches(apiCallGoneWrong);
+  }
+} else if (path === "/pages/feed/post/") {
+  try {
+    showSpinner();
+    const { postId, postData: oldPostData } = await getPost(
+      `${API_FULL_URL}/${id}${DETAILS}`
+    );
+    setupDeleteButton(postId);
+    configurePostEditHandler(postId, oldPostData);
+    toggleFormShow();
+    hideSpinner();
+  } catch (error) {
+    hideSpinner();
+    renderNoMatches(apiCallGoneWrong);
+  }
 }

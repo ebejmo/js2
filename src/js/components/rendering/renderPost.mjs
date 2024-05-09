@@ -110,5 +110,5 @@ export function renderPost(content, userName, postAuthorEmail) {
   cardDate.textContent = postDate;
   bodyContainer.appendChild(cardDate);
 
-  document.querySelector("#postContent").appendChild(cardContainer);
+  document.querySelector("#content").appendChild(cardContainer);
 }
