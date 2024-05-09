@@ -13,17 +13,17 @@ import { toggleCreateFormShow } from "./handlers/toggleCreateFormShow.mjs";
 
 const path = location.pathname;
 
-if (path === "/login/") {
+if (path === "/pages/login/") {
   loginFormHandler();
-} else if (path === "/register/") {
+} else if (path === "/pages/register/") {
   registerFormHandler();
-} else if (path === "/feed/posts/") {
+} else if (path === "/pages/feed/posts/") {
   await getPosts(API_FULL_URL + DETAILS);
   attachCreatePostFormListener();
   toggleCreateFormShow();
   setupSearchForm();
   setupFilterForm();
-} else if (path === "/feed/posts/post/") {
+} else if (path === "/pages/feed/post/") {
   const { postId, postData: oldPostData } = await getPost(
     `${API_FULL_URL}/${id}${DETAILS}`
   );

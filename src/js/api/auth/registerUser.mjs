@@ -19,7 +19,7 @@ export async function register(profile) {
     const registrationMessage = document.querySelector("#registrationMessage");
     if (response.ok) {
       alert("You have successfully registered!");
-      window.location.href = "/index.html";
+      window.location.href = "/pages/login/";
     } else {
       registrationMessage.textContent =
         "Registration failed. Please try again later.";

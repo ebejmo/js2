@@ -101,12 +101,12 @@ export function renderPosts(content) {
     bodyContainer.appendChild(cardTags);
 
     const linkContainer = document.createElement("div");
-    linkContainer.classList.add("d-flex", "lazy-links");
+    linkContainer.classList.add("d-flex", "justify-content-between");
     bodyContainer.appendChild(linkContainer);
 
     const link = document.createElement("a");
-    link.classList.add("primary");
-    link.href = `/feed/posts/post/?id=${id}`;
+    link.classList.add("btn", "btn-primary");
+    link.href = `/pages/feed/post/?id=${id}`;
     link.textContent = "Read more";
     linkContainer.appendChild(link);
 
